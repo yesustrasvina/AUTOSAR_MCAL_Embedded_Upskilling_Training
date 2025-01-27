@@ -335,3 +335,75 @@ Similar to previous one, but this time using two channels (5 and 8) using the sa
 Similar to the first one but using notifications, notifications are functions called by the adc ISR when a group conversion is finished, this allow us to inform the upper layer when a conversion is ready.
 
 ![AdcDriver_Notifications_1_channel_single_conversion](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/AdcDriver/AdcDriver_Notifications_1_channel_single_conversion/AdcDriver_Notifications_1_channel_single_conversion.png)
+
+
+### <ins>CAN Driver Evidences<ins>
+
+_Back to [Sample Evidences](#7-sample-evidences)_
+
+* #### [CAN driver CAN database](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanDriver/CanDatabase)
+
+This is one example of how a dbc file can show different CAN messages
+
+![CanDatabase](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDatabase/CanDatabase.png)
+
+* #### [CAN driver CAN reception using interrupts](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanDriver/CanDriver_Reception_using_interrupts)
+
+Set the FlexCAN2 in classic mode plus interrupt. Pins 81 and 80 configured as CAN Tx and Rx. It only waits until a single 8 bytes message is received the callback  CanIf_RxIndication function is called when the message arrives.
+
+![CanDriver_Reception_using_interrupts](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDriver_Reception_using_interrupts/CanDriver_Reception_using_interrupts.png)
+
+* #### [CAN driver CAN reception with filters](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanDriver/CanDriver_Reception_with_filters)
+
+Similar to the previous one, but this time with two filters to accept only one ID each filter (0X1EF and 0x022) correspond to one Hardware object made of one element in receive mode.
+
+![CanDriver_Reception_with_filters_0x1EF](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDriver_Reception_with_filters/CanDriver_Reception_with_filters_0x1EF.png)
+![CanDriver_Reception_with_filters_0x22](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDriver_Reception_with_filters/CanDriver_Reception_with_filters_0x22.png)
+
+* #### [CAN driver CAN transmission mailboxes](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanDriver/CanDriver_Transmission_mailboxes(buffers))
+
+It only transmit three 8 bytes messages every 5 seconds at 100Kpbs. The messages are first store in the internal CAN RAM memory called mailboxes, to later the peripheral proceed to transmit. To identify when all the messages has been transmitted we use the callback  CanIf_TxConfirmation where we set one global flag after counting up to three which are the number of messages we set in the mailboxes.
+
+![CanDriver_Transmission_mailboxes(buffers)](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDriver_Transmission_mailboxes(buffers)/CanDriver_Transmission_mailboxes(buffers).png)
+
+* #### [CAN driver CAN transmission using FlexCAN0 and FlexCAN2](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanDriver/CanDriver_Transmission_using_FlexCAN0_FlexCAN2)
+
+FlexCAN0 and FlexCAN2, each CAN controller transmits a single 4 byte data message every 5s using a bit rate of 100Kbps. Interrupts are used for both controllers, as well as 2 HTH ( 1 message buffer each ), one for each controller.
+
+![CanDriver_Transmission_using_FlexCAN0_FlexCAN2](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDriver_Transmission_using_FlexCAN0_FlexCAN2/CanDriver_Transmission_using_FlexCAN0_FlexCAN2.png)
+
+* #### [CAN driver CAN transmission using interrupts](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanDriver/CanDriver_Transmission_using_interrupts)
+
+Transmit one single 8 bytes message every 5 seconds at 100Kpbs, to identify when the message has been transmitted we use the callback  CanIf_TxConfirmation
+
+![CanDriver_Transmission_using_interrupts](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanDriver/CanDriver_Transmission_using_interrupts/CanDriver_Transmission_using_interrupts.png)
+
+
+### <ins>CANIF Driver Evidences<ins>
+
+_Back to [Sample Evidences](#7-sample-evidences)_
+
+* #### [CANIF driver 2 PDU Tx with one single HOH](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanIfDriver/CanIfDriver_2_PDU_Tx_1_HOH)
+
+We are using the CanIf layer configured for two single Ids message ( 0x123 and 0x124 ), one single buffer is use with one single HOH object for both messages. 
+
+![CanIfDriver_2_PDU_Tx_1_HOH](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanIfDriver/CanIfDriver_2_PDU_Tx_1_HOH/CanIfDriver_2_PDU_Tx_1_HOH.png)
+
+* #### [CANIF driver 2 PDU Tx 2 HOH 2 notifications](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanIfDriver/CanIfDriver_2_PDU_Tx_2_notifications)
+
+Similar to the previous one but now using notifications and one HOH for each.
+
+![CanIfDriver_2_PDU_Tx_2_notifications](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanIfDriver/CanIfDriver_2_PDU_Tx_2_notifications/CanIfDriver_2_PDU_Tx_2_notifications.png)
+
+* #### [CANIF driver reception of a single PDU in a single HRH](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanIfDriver/CanIfDriver_Reception_1_PDU_1_HRH)
+
+Reception of 1 PDU with 1 HRH
+
+![CanIfDriver_Reception_1_PDU_1_HRH](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanIfDriver/CanIfDriver_Reception_1_PDU_1_HRH/CanIfDriver_Reception_1_PDU_1_HRH.png)
+
+* #### [CANIF driver transmission of a single PDU](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/tree/main/CanIfDriver/CanIfDriver_Transmission_single_PDU)
+
+Transmission of one PDU with ID 0x123
+
+![CanIfDriver_Transmission_single_PDU](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/CanIfDriver/CanIfDriver_Transmission_single_PDU/CanIfDriver_Transmission_single_PDU.png)
+
