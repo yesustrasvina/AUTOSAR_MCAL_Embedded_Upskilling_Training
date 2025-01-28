@@ -1,6 +1,6 @@
 # AUTOSAR MCAL Embedded Upskilling Training
 
-This repository contains the projects, codes, examples, exercises, and results for the **AUTOSAR MCAL Embedded Upskilling Training** by [Modular MX](https://www.linkedin.com/company/modular-mx/). 
+This repository contains the projects results for the **AUTOSAR MCAL Embedded Upskilling Training** by [Modular MX](https://www.linkedin.com/company/modular-mx/). 
 
 ![AUTOSAR Training Banner](https://github.com/yesustrasvina/AUTOSAR_MCAL_Embedded_Upskilling_Training/blob/main/Images/AUTOSAR_MCAL_Upskilling.png)
 
